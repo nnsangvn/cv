@@ -1,6 +1,9 @@
+"use client"
+
 import { HackathonCard } from "@/components/hackathon-card";
 import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
+import Stack from "@/components/magicui/stack";
 import { ProjectCard } from "@/components/project-card";
 import { ResumeCard } from "@/components/resume-card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -9,9 +12,17 @@ import { DATA } from "@/data/resume";
 import Link from "next/link";
 import Markdown from "react-markdown";
 
+
 const BLUR_FADE_DELAY = 0.04;
 
 export default function Page() {
+  const images = [
+    { id: 1, img: "/stack/stack1.jpg" },
+    { id: 2, img: "/stack/stack2.jpg" },
+    { id: 3, img: "/stack/stack3.jpg" },
+    { id: 4, img: "/stack/stack4.jpg" },
+    { id: 5, img: "/stack/stack5.jpg" },
+  ];
   return (
     <main className="flex flex-col min-h-[100dvh] space-y-10">
       <section id="hero">
@@ -31,10 +42,21 @@ export default function Page() {
               />
             </div>
             <BlurFade delay={BLUR_FADE_DELAY}>
-              <Avatar className="size-28 border">
-                <AvatarImage alt={DATA.name} src={DATA.avatarUrl} />
-                <AvatarFallback>{DATA.initials}</AvatarFallback>
-              </Avatar>
+              <div className="block md:hidden">
+                <Avatar className="size-28 border">
+                  <AvatarImage alt={DATA.name} src={DATA.avatarUrl} />
+                  <AvatarFallback>{DATA.initials}</AvatarFallback>
+                </Avatar>
+              </div>
+              <div className="hidden md:block">
+                <Stack
+                  randomRotation={true}
+                  sensitivity={100}
+                  sendToBackOnClick={true}
+                  cardDimensions={{ width: 200, height: 200 }}
+                  cardsData={images}
+                />
+              </div>
             </BlurFade>
           </div>
         </div>
@@ -124,8 +146,7 @@ export default function Page() {
                 </h2>
                 <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                   I&apos;ve worked on a variety of projects, from simple
-                  websites to complex web applications. Here are a few of my
-                  favorites.
+                  mobile applications to complex mobile applications. Here are a few of my favorites.
                 </p>
               </div>
             </div>
@@ -152,7 +173,7 @@ export default function Page() {
           </div>
         </div>
       </section>
-      <section id="hackathons">
+      {/* <section id="hackathons">
         <div className="space-y-12 w-full py-12">
           <BlurFade delay={BLUR_FADE_DELAY * 13}>
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
@@ -194,7 +215,7 @@ export default function Page() {
             </ul>
           </BlurFade>
         </div>
-      </section>
+      </section> */}
       <section id="contact">
         <div className="grid items-center justify-center gap-4 px-4 text-center md:px-6 w-full py-12">
           <BlurFade delay={BLUR_FADE_DELAY * 16}>
@@ -208,13 +229,12 @@ export default function Page() {
               <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                 Want to chat? Just shoot me a dm{" "}
                 <Link
-                  href={DATA.contact.social.X.url}
+                  href={DATA.contact.social.Instagram.url}
                   className="text-blue-500 hover:underline"
                 >
-                  with a direct question on twitter
-                </Link>{" "}
-                and I&apos;ll respond whenever I can. I will ignore all
-                soliciting.
+                  with a direct question on Instagram 
+                </Link>{" "}  or <Link href="mailto:nguyennhatsang2002@gmail.com" target="_blank" className="text-blue-500">drop me an email</Link>
+                and I&apos;ll respond whenever I can.
               </p>
             </div>
           </BlurFade>
