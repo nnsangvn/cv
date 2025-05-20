@@ -51,7 +51,7 @@ const BlurFade = ({
           ease: "easeOut",
         }}
         className={className}
-        style={inViewMargin ? { margin: inViewMargin } : undefined}
+        // style={inViewMargin ? { margin: inViewMargin } : undefined}
       >
         {children}
       </motion.div>

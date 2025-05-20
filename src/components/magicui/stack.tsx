@@ -120,6 +120,8 @@ export default function Stack({
               }}
             >
             <Image
+              width={cardDimensions.width}
+              height={cardDimensions.height}
               src={card.img}
               alt={`card-${card.id}`}
               className="w-full h-full object-cover pointer-events-none"
