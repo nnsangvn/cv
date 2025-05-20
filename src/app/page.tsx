@@ -43,10 +43,17 @@ export default function Page() {
             </div>
             <BlurFade delay={BLUR_FADE_DELAY}>
               <div className="block md:hidden">
-                <Avatar className="size-28 border">
+                {/* <Avatar className="size-28 border">
                   <AvatarImage alt={DATA.name} src={DATA.avatarUrl} />
                   <AvatarFallback>{DATA.initials}</AvatarFallback>
-                </Avatar>
+                </Avatar> */}
+                <Stack
+                  randomRotation={true}
+                  sensitivity={100}
+                  sendToBackOnClick={true}
+                  cardDimensions={{ width: 200, height: 200 }}
+                  cardsData={images}
+                />
               </div>
               <div className="hidden md:block">
                 <Stack

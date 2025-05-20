@@ -2,7 +2,7 @@ import { Icons } from "@/components/icons";
 import { HomeIcon, NotebookIcon } from "lucide-react";
 
 export const DATA = {
-  name: "Nhất Sang",
+  name: "Sang",
   initials: "NS",
   url: "https://nnsang.com",
   location: "Vietnam",
@@ -22,7 +22,7 @@ export const DATA = {
   ],
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
-    { href: "/blog", icon: NotebookIcon, label: "Blog" },
+    // { href: "/blog", icon: NotebookIcon, label: "Blog" },
   ],
   contact: {
     email: "nguyennhatsang2002@gmail.com",
@@ -75,7 +75,7 @@ export const DATA = {
       start: "May 2024",
       end: "Present",
       description:
-        "",
+        "...",
     },
     {
       company: "Mevivu Technology",
